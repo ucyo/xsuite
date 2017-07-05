@@ -3,9 +3,8 @@
 """Chaining of cdo operators."""
 
 from .cdocmd import CMDWrapper
-from xstores import NC4DataStore
+from xsuite.xstores import NC4DataStore
 import xarray as xr
-import os
 import tempfile
 
 
