@@ -24,13 +24,13 @@ def test_import_ds():
 
 
 def test_import_ds_direct():
-    xtend._NyxDS(ds).add_methods('test/xtend/ds_methods')
+    xtend.extend._NyxDS(ds).add_methods('test/xtend/ds_methods')
     assert hasattr(ds, 'xtend')
     assert hasattr(ds.xtend, 'anomalies')
 
 
 def test_import_da_direct():
-    xtend._NyxDA(ds).add_methods('test/xtend/da_methods')
+    xtend.extend._NyxDA(ds).add_methods('test/xtend/da_methods')
     assert hasattr(ds, 'xtend')
     assert hasattr(ds.tas, 'xtend')
     assert hasattr(ds.tas.xtend, 'anomalies')

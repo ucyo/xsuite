@@ -19,7 +19,7 @@ def test_folder_error():
 
 def test_mode_err():
     with pytest.raises(ValueError) as err:
-        xtend._add_folder('test/xtend/nofolder/', mode='no')
+        xtend.extend._add_folder('test/xtend/nofolder/', mode='no')
     assert 'Can not understand mode' in str(err)
 
 
