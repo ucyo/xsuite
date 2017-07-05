@@ -3,7 +3,7 @@
 """Error messages for NC4DataStore"""
 
 import pytest
-from xsuite import xstores
+from xsuite.backend import xstores
 import netCDF4 as nc4
 import xarray as xr
 
