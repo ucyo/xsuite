@@ -21,8 +21,9 @@ class NC4DataStore(NetCDF4DataStore):
         if not isinstance(ds, (nc.Dataset, str)):
             raise TypeError('Object is neither a file nor a NETCDF4 dataset')
         if isinstance(ds, str) and not os.path.isfile(ds):
-            raise TypeError('ds is not a NETCDF4 dataset, but {}'.format(type(ds)))
-    
+            raise TypeError(
+                'ds is not a NETCDF4 dataset, but {}'.format(type(ds)))
+
         if isinstance(ds, str):
             self._filename = ds
             filename = ds
@@ -41,7 +42,6 @@ class NC4DataStore(NetCDF4DataStore):
         self._isopen = True
         self.format = format
         self.is_remote = is_remote_uri(filename)
-        # self._filename = ds.filepath() if os.path.isfile(ds.filepath()) else ""
         self._mode = 'a' if mode == 'w' else mode
         self._opener = partial(opener, mode=self._mode)
         super(NetCDF4DataStore, self).__init__(writer)
