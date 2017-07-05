@@ -3,7 +3,7 @@
 """Test error messages."""
 
 import pytest
-import xcdo
+from xsuite import xcdo
 import xarray as xr
 
 

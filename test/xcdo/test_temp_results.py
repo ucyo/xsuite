@@ -2,7 +2,7 @@
 # coding: utf-8
 """Test simple usage."""
 
-import xcdo
+from xsuite import xcdo
 import xarray as xr
 import pytest
 

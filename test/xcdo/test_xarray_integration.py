@@ -2,7 +2,7 @@
 # coding: utf-8
 """Test xarray integration."""
 
-import xcdo
+from xsuite import xcdo
 import xarray as xr
 
 
