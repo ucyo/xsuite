@@ -19,7 +19,7 @@ class NC4DataStore(NetCDF4DataStore):
                  writer=None, clobber=True, diskless=False, persist=False,
                  autoclose=False):
         if not isinstance(ds, (nc.Dataset, str)):
-            raise TypeError('Object is neither a file nor a NETCDF4 dataset')
+            raise TypeError('Object is neither a string nor a NETCDF4 dataset')
         if isinstance(ds, str) and not os.path.isfile(ds):
             raise TypeError(
                 'ds is not a NETCDF4 dataset, but {}'.format(type(ds)))
