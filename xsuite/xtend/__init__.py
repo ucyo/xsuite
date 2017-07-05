@@ -68,6 +68,7 @@ def _add_folder(folder, mode=None):
         except SystemError as err:
             print('ERR importing {}: {}'.format(method, str(err)))
         except AttributeError as err:
-            msg = 'Method "{}/{}.py" has no "main" function'.format(folder, method)
+            msg = 'Method "{}/{}.py" has no "main" function'.format(
+                folder, method)
             raise AttributeError(msg)
     return True
