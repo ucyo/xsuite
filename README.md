@@ -40,3 +40,36 @@ The module supports:
 - Lazy execution via `.result()` keyword.
 
 More information can be found [here](xsuite/xcdo/README.md).
+
+
+### xtend
+
+The `xtend` module aims to provide easy on-the-fly extension of `xarray.Dataset`
+and `xarray.DataArray` instances.
+
+Here is an example:
+
+```python
+
+from xsuite import xtend
+import xarray as xr
+import os
+
+folder = 'test/xtend/da_methods'
+print(os.listdir(folder))  # Output: ['anomalies.py', ]
+xtend.xtend_dataarray(folder)
+
+filename = './data/sresa1b_ncar_ccsm3-example.nc'
+ds = xr.open_dataset(filename, decode_times=False)
+ds.tas.xtend.anomalies()  # this will return an xr.DataArray instance
+```
+
+Two things are important for using `xtend`:
+- The python scripts need to have a `main(arg0, ..)` function. This function will be
+called by `xtend`.
+- The first argument `arg0` in the main function must be representing
+a `xr.Dataset` for `xtend.xtend_dataset()` or a `xr.DataArray` for `xtend.xtend_dataarray()`.
+- The method under which the python script will be saved is the filename. Like
+in the example given above the file `anomalies.py` will be called by `ds.xtend.anomalies()`.
+
+More information can be found [here](xsuite/xtend/README.md).
