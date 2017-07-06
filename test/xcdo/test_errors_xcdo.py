@@ -13,39 +13,39 @@ ds = xr.open_dataset(filename, decode_times=False)
 
 def test_no_value():
     with pytest.raises(ValueError) as excinfo:
-        xcdo.CDO(ds).zonmean(23).unwrap()
+        xcdo.CDO(ds).zonmean(23).result()
     assert 'does not take any arguments' in str(excinfo.value)
 
 
 def test_no_input_after_noncinput():
     with pytest.raises(TypeError) as excinfo:
-        xcdo.CDO(ds).sinfon().zonmean().unwrap()
+        xcdo.CDO(ds).sinfon().zonmean().result()
     assert 'does not allow further chaining, because of' in str(excinfo.value)
 
 
 @pytest.mark.parametrize("method", ['ml2pl', 'diffn', 'sellonlatbox'])
 def test_mandatory_args(method):
     with pytest.raises(ValueError) as excinfo:
-        getattr(xcdo.CDO(ds), method)().zonmean().unwrap()
+        getattr(xcdo.CDO(ds), method)().zonmean().result()
     assert 'Arguments are mandatory for' in str(excinfo.value)
 
 
 @pytest.mark.parametrize("method", ['mergetime', ])
 def test_unlimited_args(method):
     with pytest.raises(TypeError) as excinfo:
-        getattr(xcdo.CDO(ds), method)().zonmean().unwrap()
+        getattr(xcdo.CDO(ds), method)().zonmean().result()
     assert 'because of unlimited input of method' in str(excinfo.value)
 
 
 @pytest.mark.parametrize("method", ['zonmean', ])
 def test_forbidden_args(method):
     with pytest.raises(ValueError) as excinfo:
-        getattr(xcdo.CDO(ds), method)(231).unwrap()
+        getattr(xcdo.CDO(ds), method)(231).result()
     assert method + ' does not take any arguments' in str(excinfo.value)
 
 
 def test_default_options_given():
-    data = xcdo.CDO(ds).mermean().unwrap()
+    data = xcdo.CDO(ds).mermean().result()
     options = data.attrs['history'].split('cdo', 1)[1].split('mermean', 1)[0]
     assert ' -O -f nc ' == options
 
@@ -59,14 +59,14 @@ def test_wrong_input():
 @pytest.mark.parametrize("method", ['meanzo', ])
 def test_wrong_method(method):
     with pytest.raises(ValueError) as excinfo:
-        getattr(xcdo.CDO(ds), method)(231).unwrap()
+        getattr(xcdo.CDO(ds), method)(231).result()
     assert method + ' is not a cdo method' in str(excinfo.value)
 
 
 @pytest.mark.parametrize("method", ['cmor', 'readCdf'])
 def test_nodoc(method):
     with pytest.raises(ValueError) as excinfo:
-        getattr(xcdo.CDO(ds), method)(231).unwrap()
+        getattr(xcdo.CDO(ds), method)(231).result()
     assert method + ' not supported' in str(excinfo.value)
 
 
