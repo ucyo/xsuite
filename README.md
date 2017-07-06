@@ -73,3 +73,7 @@ a `xr.Dataset` for `xtend.xtend_dataset()` or a `xr.DataArray` for `xtend.xtend_
 in the example given above the file `anomalies.py` will be called by `ds.xtend.anomalies()`.
 
 More information can be found [here](xsuite/xtend/README.md).
+
+## Todo
+
+- [ ] Add license from salem and xarray because of (./xsuite/backend/xstores/NC4DataStore.py).
