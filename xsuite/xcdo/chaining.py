@@ -27,7 +27,7 @@ class CMDChain(BaseChain):
     def __init__(self, value, options='-f nc'):
         super(CMDChain, self).__init__(value, options)
 
-    def unwrap(self):
+    def result(self):
         wrapper = self._generate()
         if isinstance(wrapper._value, str):
             return wrapper._value
