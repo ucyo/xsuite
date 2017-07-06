@@ -76,4 +76,4 @@ More information can be found [here](xsuite/xtend/README.md).
 
 ## Todo
 
-- [ ] Add license from salem and xarray because of (./xsuite/backend/xstores/NC4DataStore.py).
+- [ ] Add license from salem and xarray because of [xstores](xsuite/backend/xstores/NC4DataStore.py).
