@@ -13,19 +13,19 @@ ds = xr.open_dataset(filename, decode_times=False)
 
 def test_folder_error():
     with pytest.raises(AssertionError) as err:
-        xtend.xtend_dataarray('test/xtend/nofolder/')
+        xtend.xtend_dataarray('tests/xtend/nofolder/')
     assert 'is not a folder' in str(err)
 
 
 def test_mode_err():
     with pytest.raises(ValueError) as err:
-        xtend.extend._add_folder('test/xtend/nofolder/', mode='no')
+        xtend.extend._add_folder('tests/xtend/nofolder/', mode='no')
     assert 'Can not understand mode' in str(err)
 
 
 def test_no_main():
     with pytest.raises(AttributeError) as err:
-        xtend.xtend_dataarray('test/xtend/false_da_methods')
+        xtend.xtend_dataarray('tests/xtend/false_da_methods')
     assert 'has no "main" function' in str(err)
 
 
