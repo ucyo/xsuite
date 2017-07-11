@@ -33,7 +33,7 @@ class CMD(object):
     @classmethod
     def _regex(cls, method):
         _regex = "(?P<method>" + method + \
-            "|<operator>)(?P<args>[\s+|[\,|\[][\[?\,\w*]*\]*)(?:\s+)(?P<input1>ifile[s|1]?)(?:\s+)?(?P<input2>ifile2)?(?:\s+)?(?P<output>ofile)?"
+            "|<operator>)(?P<args>[\s+|[\,|\[][\[?\,\w*]*\]*)(?:\s+)(?P<input1>in?file[s|1]?)(?:\s+)?(?P<input2>in?file2)?(?:\s+)?(?P<output>ou?t?file)?"
         return _regex
 
     @property
@@ -68,7 +68,7 @@ class CMDWrapper(CMD):
         self._options = options
 
     def _setup_unwrap(self):
-        self.unlimited_input = self.params.get('input1', '') == 'ifiles'
+        self.unlimited_input = self.params.get('input1', '') in ['ifiles','infiles']
         self.allow_another_chain = 'output' in self.filtered.keys()
         self.allow_args = 'args' in self.filtered.keys(
         ) or 'input2' in self.filtered.keys() or self.unlimited_input
