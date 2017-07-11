@@ -7,11 +7,7 @@ Currently there are three extensions:
 - `xsuite.backend.xstores` Additional datastores for different formats
 
 ## Installation
-The module can be installed via `pip install .` or `pip install -t <targetdir> .`
-if you want to install it in a specific folder.
-
-> Using `python setup.py instal` will result in a UserWarning by distutil.
-> The root module will still be installed, but not the submodules.
+The module can be installed via `python setup.py install` or `pip install .`
 
 ## Usage
 
