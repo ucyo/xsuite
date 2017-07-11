@@ -2,7 +2,7 @@
 # coding: utf-8
 """Chaining of cdo operators."""
 
-from .cdocmd import CMDWrapper
+from xsuite.xcdo.cdocmd import CMDWrapper
 from xsuite.backend.xstores import NC4DataStore
 import xarray as xr
 import tempfile

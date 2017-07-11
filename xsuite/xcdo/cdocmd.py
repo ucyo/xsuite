@@ -4,8 +4,8 @@
 
 import re
 from cdo import Cdo
-from .helpers import mapping, nodoc
-from . import chaining as chh
+from xsuite.xcdo.helpers import mapping, nodoc
+from xsuite.xcdo import chaining as chh
 import os
 import xarray as xr
 
