@@ -11,26 +11,26 @@ ds = xr.open_dataset(filename, decode_times=False)
 
 
 def test_import_da():
-    xtend.xtend_dataarray('tests/xtend/da_methods')
+    xtend.xtend_dataarray('xtend/da_methods')
     assert hasattr(ds, 'xtend')
     assert hasattr(ds.tas, 'xtend')
     assert hasattr(ds.tas.xtend, 'anomalies')
 
 
 def test_import_ds():
-    xtend.xtend_dataset('tests/xtend/ds_methods')
+    xtend.xtend_dataset('xtend/ds_methods')
     assert hasattr(ds, 'xtend')
     assert hasattr(ds.xtend, 'anomalies')
 
 
 def test_import_ds_direct():
-    xtend.extend._NyxDS(ds).add_methods('tests/xtend/ds_methods')
+    xtend.extend._NyxDS(ds).add_methods('xtend/ds_methods')
     assert hasattr(ds, 'xtend')
     assert hasattr(ds.xtend, 'anomalies')
 
 
 def test_import_da_direct():
-    xtend.extend._NyxDA(ds).add_methods('tests/xtend/da_methods')
+    xtend.extend._NyxDA(ds).add_methods('xtend/da_methods')
     assert hasattr(ds, 'xtend')
     assert hasattr(ds.tas, 'xtend')
     assert hasattr(ds.tas.xtend, 'anomalies')
