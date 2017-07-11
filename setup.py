@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 with open('requirements.txt') as f:
     requirements = f.read().splitlines()
 
-version = '0.2'
+version = '0.2.4.1'
 
 setup(name='xsuite',
       install_requires=requirements,
