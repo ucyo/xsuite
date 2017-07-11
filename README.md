@@ -27,7 +27,7 @@ Here is an example:
 from xsuite import xcdo
 import xarray as xr
 
-filename = './data/sresa1b_ncar_ccsm3-example.nc'
+filename = './tests/data/sresa1b_ncar_ccsm3-example.nc'
 ds = xr.open_dataset(filename, decode_times=False)
 
 ds.xcdo.mermean().zonmean().result()  # this will return a xr.Dataset instance
@@ -55,11 +55,11 @@ from xsuite import xtend
 import xarray as xr
 import os
 
-folder = 'test/xtend/da_methods'
+folder = './tests/xtend/da_methods'
 print(os.listdir(folder))  # Output: ['anomalies.py', ]
 xtend.xtend_dataarray(folder)
 
-filename = './data/sresa1b_ncar_ccsm3-example.nc'
+filename = './tests/data/sresa1b_ncar_ccsm3-example.nc'
 ds = xr.open_dataset(filename, decode_times=False)
 ds.tas.xtend.anomalies()  # this will return an xr.DataArray instance
 ```
