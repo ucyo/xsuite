@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# coding=utf-8
 """Extensions for Xarray for analysing weather data."""
 
 import functools
@@ -6,6 +8,8 @@ import importlib as ilib
 import os
 import sys
 
+_DA_ENV = 'XSUITE_DA_FOLDERS'
+_DS_ENV = 'XSUITE_DS_FOLDERS'
 
 @xr.register_dataarray_accessor('xtend')
 class _NyxDA(object):
@@ -15,6 +19,9 @@ class _NyxDA(object):
     def add_methods(self, folder):
         return _add_folder(folder, mode='da')
 
+    def load_env(self):
+        return _load_from_env(mode='da')
+
 
 @xr.register_dataset_accessor('xtend')
 class _NyxDS(object):
@@ -23,6 +30,9 @@ class _NyxDS(object):
 
     def add_methods(self, folder):
         return _add_folder(folder, mode='ds')
+
+    def load_env(self):
+        return _load_from_env(mode='ds')
 
 
 def _patch(func, funcname, mode):
@@ -72,3 +82,21 @@ def _add_folder(folder, mode=None):
                 folder, method)
             raise AttributeError(msg)
     return True
+
+
+def _load_from_env(mode=None):
+    if mode is None:
+        _ = [_load_from_env(x) for x in ['da','ds']]
+        return None
+    ENVVAR = _DA_ENV if mode == 'da' else _DS_ENV
+    env = os.environ.get(ENVVAR, False)
+    print(mode)
+    if not env:
+        return None
+    folders = env.split(':')
+    for folder in folders:
+        _add_folder(folder, mode)
+
+
+_load_from_env('ds')
+_load_from_env('da')
