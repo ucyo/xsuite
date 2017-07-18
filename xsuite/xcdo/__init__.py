@@ -4,7 +4,7 @@
 
 import xarray as xr
 import tempfile
-from xsuite.xcdo.chaining import CMDChain as Chain
+from xsuite.xcdo.cdocmd import CMDChain as Chain
 
 
 @xr.register_dataset_accessor('xcdo')

@@ -7,7 +7,7 @@ Currently there are three extensions:
 - `xsuite.backend.xstores` Additional datastores for different formats
 
 ## Installation
-The module can be installed via `python setup.py install` or `pip install .`
+The module is compatible with `py2` and `py3` and can be installed via `pip install .`
 
 ## Usage
 

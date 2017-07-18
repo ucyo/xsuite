@@ -16,24 +16,24 @@ def test_back_to_back_execution():
 
 
 def test_chaining_str():
-    hello = xcdo.chaining.CMDChain('hello')
+    hello = xcdo.cdocmd.CMDChain('hello')
     assert hello.result() == 'hello'
 
 
 def test_input2():
-    result = xcdo.chaining.CMDChain(filename).diffn(
+    result = xcdo.cdocmd.CMDChain(filename).diffn(
         'data/sresa1b_ncar_ccsm3-example_2.nc').result()
     assert result == []
 
 
 def test_unlimited_input():
-    result = xcdo.chaining.CMDChain(filename).mergetime(
+    result = xcdo.cdocmd.CMDChain(filename).mergetime(
         'data/sresa1b_ncar_ccsm3-example_2.nc').result()
     assert isinstance(result, xr.Dataset)
 
 
 def test_string_input():
-    result = xcdo.chaining.CMDChain(filename).result()
+    result = xcdo.cdocmd.CMDChain(filename).result()
     assert result == filename
 
 
@@ -43,8 +43,8 @@ def test_sellonlatbox():
 
 
 # def test_inception():
-#     level0 = xcdo.chaining.CMDChain(filename)
-#     level1 = xcdo.chaining.CMDChain(level0).zonmean().result()
+#     level0 = xcdo.cdocmd.CMDChain(filename)
+#     level1 = xcdo.cdocmd.CMDChain(level0).zonmean().result()
 #     assert isinstance(level1, xr.Dataset)
 
 

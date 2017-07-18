@@ -73,12 +73,12 @@ def test_nodoc(method):
 @pytest.mark.parametrize("method", ['diffn', ])
 def test_input2_args(method):
     with pytest.raises(TypeError) as excinfo:
-        getattr(xcdo.chaining.CMDChain(filename), method)('nonvalid.input')
+        getattr(xcdo.cdocmd.CMDChain(filename), method)('nonvalid.input')
     assert method + ' expects a file as an argument' in str(excinfo.value)
 
 
 @pytest.mark.parametrize("method", ['diffn', ])
 def test_input2_only_one_args(method):
     with pytest.raises(ValueError) as excinfo:
-        getattr(xcdo.chaining.CMDChain(filename), method)('nonvalid.input', 2)
+        getattr(xcdo.cdocmd.CMDChain(filename), method)('nonvalid.input', 2)
     assert 'Expected only one argument for method' in str(excinfo.value)
