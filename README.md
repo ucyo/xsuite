@@ -59,9 +59,8 @@ folder = './tests/xtend/da_methods'
 print(os.listdir(folder))  # Output: ['anomalies.py', ]
 xtend.xtend_dataarray(folder)
 
-filename = './tests/data/sresa1b_ncar_ccsm3-example.nc'
-ds = xr.open_dataset(filename, decode_times=False)
-ds.tas.xtend.anomalies()  # this will return an xr.DataArray instance
+ds = xsuite.load_data('toyweather.nc')
+ds.tmin.xtend.anomalies()  # this will return an xr.DataArray instance
 ```
 
 Two things are important for using `xtend`:
