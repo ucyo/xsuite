@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
-"""Reverse the ordering of a xr.DataArray."""
+"""Calculate anomalies within a xr.DataArray."""
 
 
 def main(dataarray):
