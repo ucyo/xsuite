@@ -11,6 +11,7 @@ import sys
 _DA_ENV = 'XSUITE_DA_FOLDERS'
 _DS_ENV = 'XSUITE_DS_FOLDERS'
 
+
 @xr.register_dataarray_accessor('xtend')
 class _NyxDA(object):
     def __init__(self, data):
@@ -86,11 +87,10 @@ def _add_folder(folder, mode=None):
 
 def _load_from_env(mode=None):
     if mode is None:
-        _ = [_load_from_env(x) for x in ['da','ds']]
+        _ = [_load_from_env(x) for x in ['da', 'ds']]
         return None
     ENVVAR = _DA_ENV if mode == 'da' else _DS_ENV
     env = os.environ.get(ENVVAR, False)
-    print(mode)
     if not env:
         return None
     folders = env.split(':')
