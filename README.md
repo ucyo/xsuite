@@ -55,7 +55,7 @@ from xsuite import xtend
 import xarray as xr
 import os
 
-folder = './tests/xtend/da_methods'
+folder = './examples/'
 print(os.listdir(folder))  # Output: ['anomalies.py', ]
 xtend.xtend_dataarray(folder)
 
