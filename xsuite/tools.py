@@ -10,5 +10,4 @@ def load_data(filename, **kwargs):
     """Load file from example data."""
     folder, _ = os.path.split(__file__)
     filename = os.path.join(folder, os.path.pardir, 'data', filename)
-    print(filename)
     return xr.open_dataset(filename, **kwargs)
