@@ -96,7 +96,3 @@ def _load_from_env(mode=None):
     folders = env.split(':')
     for folder in folders:
         _add_folder(folder, mode)
-
-
-_load_from_env('ds')
-_load_from_env('da')
