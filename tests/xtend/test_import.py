@@ -12,31 +12,33 @@ FILENAME = 'sresa1b_ncar_ccsm3-example.nc'
 ds = load_data(FILENAME, decode_times=False)
 
 
-filename = 'data/sresa1b_ncar_ccsm3-example.nc'
-ds = xr.open_dataset(filename, decode_times=False)
 
 
 def test_import_da():
-    xtend.xtend_dataarray('xtend/da_methods')
+    folder = os.path.join(os.path.dirname(__file__), 'da_methods')
+    xtend.xtend_dataarray(folder)    
     assert hasattr(ds, 'xtend')
     assert hasattr(ds.tas, 'xtend')
     assert hasattr(ds.tas.xtend, 'anomalies')
 
 
 def test_import_ds():
-    xtend.xtend_dataset('xtend/ds_methods')
+    folder = os.path.join(os.path.dirname(__file__), 'ds_methods')
+    xtend.xtend_dataset(folder)    
     assert hasattr(ds, 'xtend')
     assert hasattr(ds.xtend, 'anomalies')
 
 
 def test_import_ds_direct():
-    xtend.extend._NyxDS(ds).add_methods('xtend/ds_methods')
+    folder = os.path.join(os.path.dirname(__file__), 'ds_methods')
+    xtend.extend._NyxDS(ds)._add_methods(folder)
     assert hasattr(ds, 'xtend')
     assert hasattr(ds.xtend, 'anomalies')
 
 
 def test_import_da_direct():
-    xtend.extend._NyxDA(ds).add_methods('xtend/da_methods')
+    folder = os.path.join(os.path.dirname(__file__), 'da_methods')
+    xtend.extend._NyxDA(ds)._add_methods(folder)
     assert hasattr(ds, 'xtend')
     assert hasattr(ds.tas, 'xtend')
     assert hasattr(ds.tas.xtend, 'anomalies')

@@ -34,4 +34,5 @@ def test_no_folder():
 
 
 def test_no_pyfiles():
-    assert not xtend.xtend_dataarray('data')
+    folder = os.path.dirname(__file__)
+    assert not xtend.xtend_dataarray()
