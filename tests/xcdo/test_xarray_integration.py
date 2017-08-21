@@ -4,7 +4,6 @@
 
 from xsuite.tools import load_data
 from xsuite import xcdo
-import xarray as xr
 
 
 FILENAME = 'sresa1b_ncar_ccsm3-example.nc'
