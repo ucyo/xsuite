@@ -18,10 +18,10 @@ class _NyxDA(object):
     def __init__(self, data):
         self._data = data
 
-    def add_methods(self, folder):
+    def _add_methods(self, folder):
         return _add_folder(folder, mode='da')
 
-    def load_env(self):
+    def _load_env(self):
         return _load_from_env(mode='da')
 
 
@@ -30,10 +30,10 @@ class _NyxDS(object):
     def __init__(self, data):
         self._data = data
 
-    def add_methods(self, folder):
+    def _add_methods(self, folder):
         return _add_folder(folder, mode='ds')
 
-    def load_env(self):
+    def _load_env(self):
         return _load_from_env(mode='ds')
 
 
