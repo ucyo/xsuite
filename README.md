@@ -6,6 +6,10 @@ Currently there are three extensions:
 - `xsuite.xtend` Extend xarray.Datasets and xarray.DataArrays with functions
 - `xsuite.backend.xstores` Additional datastores for different formats
 
+> cdo version 1.9.0 is currently not supported. The toolset does not support
+> the `returnCdf` command anymore. Any [issue](https://code.mpimet.mpg.de/issues/7839#change-33102)
+> has been opened.
+
 ## Installation
 The module is compatible with `py2` and `py3` and can be installed via `pip install .`
 
@@ -25,10 +29,9 @@ Here is an example:
 ```python
 
 from xsuite import xcdo
-import xarray as xr
+from xsuite.tools import load_data
 
-filename = './tests/data/sresa1b_ncar_ccsm3-example.nc'
-ds = xr.open_dataset(filename, decode_times=False)
+ds = load_data('sresa1b_ncar_ccsm3-example.nc', decode_times=False)
 
 ds.xcdo.mermean().zonmean().result()  # this will return a xr.Dataset instance
 
