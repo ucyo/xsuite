@@ -2,13 +2,13 @@
 # coding: utf-8
 """Test xarray integration."""
 
+from xsuite.tools import load_data
 from xsuite import xcdo
 import xarray as xr
 
 
-filename = 'data/sresa1b_ncar_ccsm3-example.nc'
-ds = xr.open_dataset(filename, decode_times=False)
-
+FILENAME = 'sresa1b_ncar_ccsm3-example.nc'
+ds = load_data(FILENAME, decode_times=False)
 
 def test_back_to_back_execution():
     ds.xcdo.zonmean().result()

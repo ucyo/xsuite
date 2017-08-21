@@ -4,6 +4,7 @@
 
 import xarray as xr
 import os
+from xsuite.tools import load_data
 
 DA_ENV = 'XSUITE_DA_FOLDERS'
 DS_ENV = 'XSUITE_DS_FOLDERS'
@@ -14,6 +15,8 @@ for var in [DA_ENV, DS_ENV]:
 
 FILENAME = 'data/sresa1b_ncar_ccsm3-example.nc'
 DS = xr.open_dataset(FILENAME, decode_times=False)
+FILENAME = 'sresa1b_ncar_ccsm3-example.nc'
+DS = load_data(FILENAME, decode_times=False)
 
 
 def test_load_from_env():

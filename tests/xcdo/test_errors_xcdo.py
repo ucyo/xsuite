@@ -5,10 +5,12 @@
 import pytest
 from xsuite import xcdo
 import xarray as xr
+from xsuite.tools import load_data
 
 
-filename = 'data/sresa1b_ncar_ccsm3-example.nc'
-ds = xr.open_dataset(filename, decode_times=False)
+
+FILENAME = 'sresa1b_ncar_ccsm3-example.nc'
+ds = load_data(FILENAME, decode_times=False)
 
 
 def test_no_value():

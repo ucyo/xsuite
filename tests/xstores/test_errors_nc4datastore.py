@@ -2,12 +2,14 @@
 # coding: utf-8
 """Error messages for NC4DataStore"""
 
+import os
 import pytest
 from xsuite.backend import xstores
 import netCDF4 as nc4
 import xarray as xr
 
-filename = 'data/sresa1b_ncar_ccsm3-example.nc'
+filename = os.path.join(os.path.dirname(__file__), os.path.pardir, os.path.pardir, 'data', 'sresa1b_ncar_ccsm3-example.nc')
+# filename = 'data/sresa1b_ncar_ccsm3-example.nc'
 
 
 def test_not_nc_dataset():

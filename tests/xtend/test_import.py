@@ -3,8 +3,14 @@
 """Tests for importing folders with extensions."""
 
 
-import xarray as xr
+import os
 from xsuite import xtend
+from xsuite.tools import load_data
+
+
+FILENAME = 'sresa1b_ncar_ccsm3-example.nc'
+ds = load_data(FILENAME, decode_times=False)
+
 
 filename = 'data/sresa1b_ncar_ccsm3-example.nc'
 ds = xr.open_dataset(filename, decode_times=False)

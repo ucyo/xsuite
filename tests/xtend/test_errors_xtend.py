@@ -2,13 +2,13 @@
 # coding: utf-8
 """Tests for importing folders with extensions."""
 
-
-import xarray as xr
+import os
 from xsuite import xtend
 import pytest
+from xsuite.tools import load_data
 
-filename = 'data/sresa1b_ncar_ccsm3-example.nc'
-ds = xr.open_dataset(filename, decode_times=False)
+FILENAME = 'sresa1b_ncar_ccsm3-example.nc'
+ds = load_data(FILENAME, decode_times=False)
 
 
 def test_folder_error():
