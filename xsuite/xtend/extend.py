@@ -3,13 +3,14 @@
 """Extensions for Xarray for analysing weather data."""
 
 import functools
-import xarray as xr
 import importlib as ilib
 import os
 import sys
+import xarray as xr
 
-_DA_ENV = 'XSUITE_DA_FOLDERS'
-_DS_ENV = 'XSUITE_DS_FOLDERS'
+
+_DA_ENV = 'XSUITE_DA_METHODS'
+_DS_ENV = 'XSUITE_DS_METHODS'
 
 
 @xr.register_dataarray_accessor('xtend')
