@@ -2,9 +2,8 @@
 # coding: utf-8
 """Tests for importing folders with extensions."""
 
-import os
-from xsuite import xtend
 import pytest
+from xsuite import xtend
 from xsuite.tools import load_data
 
 FILENAME = 'sresa1b_ncar_ccsm3-example.nc'
@@ -23,16 +22,5 @@ def test_mode_err():
     assert 'Can not understand mode' in str(err)
 
 
-# def test_no_main():
-#     with pytest.raises(AttributeError) as err:
-#         xtend.xtend_dataarray('xtend/false_da_methods')
-#     assert 'has no "main" function' in str(err)
-
-
 def test_no_folder():
-    assert not xtend.xtend_dataarray()
-
-
-def test_no_pyfiles():
-    folder = os.path.dirname(__file__)
     assert not xtend.xtend_dataarray()
