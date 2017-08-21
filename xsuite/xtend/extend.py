@@ -82,9 +82,9 @@ def _add_folder(folder, mode=None):
         except AttributeError as err:
             msg = 'Method "{}/{}.py" has no "main" function'.format(
                 folder, method)
-            raise AttributeError(msg)
+            # raise AttributeError(msg)
         except ModuleNotFoundError as err:
-            print("Module not found! %s", err)
+            print(err, method)
     return True
 
 

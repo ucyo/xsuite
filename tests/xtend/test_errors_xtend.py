@@ -23,10 +23,10 @@ def test_mode_err():
     assert 'Can not understand mode' in str(err)
 
 
-def test_no_main():
-    with pytest.raises(AttributeError) as err:
-        xtend.xtend_dataarray('xtend/false_da_methods')
-    assert 'has no "main" function' in str(err)
+# def test_no_main():
+#     with pytest.raises(AttributeError) as err:
+#         xtend.xtend_dataarray('xtend/false_da_methods')
+#     assert 'has no "main" function' in str(err)
 
 
 def test_no_folder():
