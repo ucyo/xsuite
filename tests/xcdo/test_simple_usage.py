@@ -1,15 +1,17 @@
 #!/usr/bin/env python
 # coding: utf-8
 """Test simple usage."""
-from xsuite.tools import load_data
 
+import os
+from xsuite.tools import load_data
 from xsuite import xcdo
 import xarray as xr
 
 
 FILENAME = 'sresa1b_ncar_ccsm3-example.nc'
 ds = load_data(FILENAME, decode_times=False)
-
+datadir = os.path.join(os.path.dirname(__file__), os.path.pardir, os.path.pardir, 'data')
+filename = os.path.join(datadir, FILENAME)
 
 def test_back_to_back_execution():
     xcdo.CDO(ds).zonmean().result()
@@ -22,14 +24,12 @@ def test_chaining_str():
 
 
 def test_input2():
-    result = xcdo.cdocmd.CMDChain(filename).diffn(
-        'data/sresa1b_ncar_ccsm3-example_2.nc').result()
+    result = xcdo.cdocmd.CMDChain(filename).diffn(filename).result()
     assert result == []
 
 
 def test_unlimited_input():
-    result = xcdo.cdocmd.CMDChain(filename).mergetime(
-        'data/sresa1b_ncar_ccsm3-example_2.nc').result()
+    result = xcdo.cdocmd.CMDChain(filename).mergetime(filename).result()
     assert isinstance(result, xr.Dataset)
 
 
