@@ -12,8 +12,6 @@ FILENAME = 'sresa1b_ncar_ccsm3-example.nc'
 ds = load_data(FILENAME, decode_times=False)
 
 
-
-
 def test_import_da():
     folder = os.path.join(os.path.dirname(__file__), 'da_methods')
     xtend.xtend_dataarray(folder)    
