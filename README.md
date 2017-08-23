@@ -27,14 +27,12 @@ provided by the cdo toolset to be used on `xr.Dataset` instances.
 Here is an example:
 
 ```python
-
 from xsuite import xcdo
 from xsuite.tools import load_data
 
 ds = load_data('sresa1b_ncar_ccsm3-example.nc', decode_times=False)
 
 ds.xcdo.mermean().zonmean().result()  # this will return a xr.Dataset instance
-
 ```
 
 The module supports:
@@ -53,7 +51,6 @@ and `xarray.DataArray` instances.
 Here is an example:
 
 ```python
-
 from xsuite import xtend
 import xarray as xr
 import os
