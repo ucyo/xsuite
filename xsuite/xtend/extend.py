@@ -2,12 +2,16 @@
 # coding=utf-8
 """Extensions for Xarray for analysing weather data."""
 
+import logging
 import functools
 import importlib as ilib
 import os
 import sys
 import xarray as xr
 
+from xsuite.setup_logging import setup_logging as setup
+setup()
+logger = logging.getLogger(__name__)
 
 _DA_ENV = 'XSUITE_DA_METHODS'
 _DS_ENV = 'XSUITE_DS_METHODS'
@@ -77,14 +81,10 @@ def _add_folder(folder, mode=None):
         try:
             lib = ilib.import_module(method, package='xtend')
             _patch(getattr(lib, 'main'), method, mode)
-        except SystemError as err:
-            print('ERR importing {}: {}'.format(method, str(err)))
+        except (SystemError, ModuleNotFoundError) as err:
+            logger.info("Method: %s not loaded. Because: %s", method, err)
         except AttributeError as err:
-            msg = 'Method "{}/{}.py" has no "main" function'.format(
-                folder, method)
-            # raise AttributeError(msg)
-        except ModuleNotFoundError as err:
-            print(err, method)
+            logger.info("Method: %s has no 'main' function.", method)
     return True
 
 
