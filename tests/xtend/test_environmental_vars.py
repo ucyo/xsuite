@@ -8,10 +8,14 @@ from xsuite.tools import load_data
 
 DA_ENV = 'XSUITE_DA_METHODS'
 DS_ENV = 'XSUITE_DS_METHODS'
+DIR = os.path.dirname(__file__)
+DA_ENV_ENTRY = "{}:{}".format(os.path.join(DIR, 'da_methods'),
+                              os.path.join(DIR, 'da_methods_other'))
+DS_ENV_ENTRY = os.path.join(DIR, 'ds_methods')
 
 
 for var in [DA_ENV, DS_ENV]:
-    os.environ[var] = 'xtend/da_methods:xtend/da_methods_other' if 'DA' in var else 'xtend/ds_methods'
+    os.environ[var] = DA_ENV_ENTRY if 'DA' in var else DS_ENV_ENTRY
 
 
 FILENAME = 'sresa1b_ncar_ccsm3-example.nc'
