@@ -92,8 +92,8 @@ def _load_from_env(mode=None):
     if mode is None:
         _ = [_load_from_env(x) for x in ['da', 'ds']]
         return None
-    ENVVAR = _DA_ENV if mode == 'da' else _DS_ENV
-    env = os.environ.get(ENVVAR, False)
+    envvar = _DA_ENV if mode == 'da' else _DS_ENV
+    env = os.environ.get(envvar, False)
     if not env:
         return None
     folders = env.split(':')
