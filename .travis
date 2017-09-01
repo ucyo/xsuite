@@ -1,3 +1,7 @@
+addons:
+  apt:
+    packages:
+      - cdo
 language: python
 python:
   - "2.6"
