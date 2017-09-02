@@ -2,6 +2,10 @@ addons:
   apt:
     packages:
       - cdo
+      - netcdf4
+      - libhdf5-dev
+      - libnetcdf-dev
+      - libnetcdff-dev
 language: python
 python:
   - "2.6"
