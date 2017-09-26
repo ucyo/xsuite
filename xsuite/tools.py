@@ -3,22 +3,17 @@
 """Tools help defining recurring tasks."""
 
 import os
+import pkg_resources
 import xarray as xr
 
 
 def load_data(key, **kwargs):
     """Load file from example data."""
-    mapping = {'toy':'toyweather.nc',
-               'pre':'sresa1b_ncar_ccsm3-example.nc'}
-    
-    def get_path(hint):
-        filename = mapping.get(hint, False)
-        if not filename:
-            raise ValueError('Unknown file')
-        folder, _ = os.path.split(__file__)
-        return os.path.join(folder, os.path.pardir, 'data', filename)
-
-    path = get_path(key)
+    mapping = {'toy': pkg_resources.resource_filename('xsuite', 'data/toyweather.nc'),
+               'pre': pkg_resources.resource_filename('xsuite', 'data/sresa1b_ncar_ccsm3-example.nc')}
+    path = mapping.get(key, False)
+    if not path:
+        raise Exception('Unknown file.')
     return xr.open_dataset(path, **kwargs)
 
 
