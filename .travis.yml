@@ -3,6 +3,8 @@ addons:
     packages:
       - libnetcdf-dev
       - libhdf5-dev
+      - python-netcdf4
+      - python3-netcdf4
 language: python
 python:
   #  - "2.6"
@@ -24,7 +26,7 @@ install:
   - wget https://code.mpimet.mpg.de/attachments/download/15187/cdo-1.9.0.tar.gz
   - mkdir cdo-files
   - tar -xzvf cdo-1.9.0.tar.gz -C cdo-files --strip-components 1
-  - pushd cdo-current
+  - pushd cdo-files
   - ./configure --enable-netcdf4  --enable-zlib --with-netcdf=/usr/ --with-hdf5=/usr/
   - make 
   - sudo make install
