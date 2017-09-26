@@ -18,8 +18,7 @@ for var in [DA_ENV, DS_ENV]:
     os.environ[var] = DA_ENV_ENTRY if 'DA' in var else DS_ENV_ENTRY
 
 
-FILENAME = 'sresa1b_ncar_ccsm3-example.nc'
-DS = load_data(FILENAME, decode_times=False)
+DS = load_data('pre', decode_times=False)
 
 
 def test_load_from_env():

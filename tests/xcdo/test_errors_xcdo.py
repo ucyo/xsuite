@@ -9,10 +9,9 @@ from xsuite.tools import load_data
 
 
 
-FILENAME = 'sresa1b_ncar_ccsm3-example.nc'
-ds = load_data(FILENAME, decode_times=False)
+ds = load_data('pre', decode_times=False)
 datadir = os.path.join(os.path.dirname(__file__), os.path.pardir, os.path.pardir, 'data')
-filename = os.path.join(datadir, FILENAME)
+filename = os.path.join(datadir, 'sresa1b_ncar_ccsm3-example.nc')
 
 
 def test_no_value():

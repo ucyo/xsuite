@@ -6,8 +6,8 @@ from xsuite.tools import load_data
 from xsuite import xcdo
 
 
-FILENAME = 'sresa1b_ncar_ccsm3-example.nc'
-ds = load_data(FILENAME, decode_times=False)
+ds = load_data('pre', decode_times=False)
+
 
 def test_back_to_back_execution():
     ds.xcdo.zonmean().result()

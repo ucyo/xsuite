@@ -4,12 +4,10 @@
 from xsuite.tools import load_data
 
 from xsuite import xcdo
-import xarray as xr
 import pytest
 
 
-FILENAME = 'sresa1b_ncar_ccsm3-example.nc'
-ds = load_data(FILENAME, decode_times=False)
+ds = load_data('pre', decode_times=False)
 
 
 @pytest.mark.parametrize("method,expected",
