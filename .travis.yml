@@ -3,8 +3,6 @@ addons:
     packages:
       - libnetcdf-dev
       - libhdf5-dev
-      - python-netcdf4
-      - python3-netcdf4
 language: python
 python:
   #  - "2.6"
@@ -31,5 +29,6 @@ install:
   - make 
   - sudo make install
   - pushd
+  - nc-config --all
 # command to run tests
 script: pytest
