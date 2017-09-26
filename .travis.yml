@@ -2,6 +2,7 @@ addons:
   apt:
     packages:
       - libnetcdf-dev
+      - libnetcdf-c++4
       - libhdf5-dev
       - cdo
 language: python
@@ -23,5 +24,3 @@ install:
   - python setup.py install
 # command to run tests
 script: pytest
-env:
-  - PYTHONPATH=../
