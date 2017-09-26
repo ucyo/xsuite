@@ -22,14 +22,13 @@ install:
   - pip install -r requirements.txt
   - python setup.py install
   # install cdo fresh
-  - wget https://code.mpimet.mpg.de/attachments/download/15187/cdo-1.9.0.tar.gz
+  - wget https://code.mpimet.mpg.de/attachments/download/15187/cdo-1.8.2.tar.gz
   - mkdir cdo-files
-  - tar -xzvf cdo-1.9.0.tar.gz -C cdo-files --strip-components 1
+  - tar -xzvf cdo-1.8.2.tar.gz -C cdo-files --strip-components 1
   - pushd cdo-files
   - ./configure --enable-netcdf4  --enable-zlib --with-netcdf=/usr/ --with-hdf5=/usr/
   - make 
   - sudo make install
   - pushd
-  - nc-config --all
 # command to run tests
 script: pytest
