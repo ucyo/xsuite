@@ -2,9 +2,7 @@ addons:
   apt:
     packages:
       - libnetcdf-dev
-      - libnetcdf-c++4
       - libhdf5-dev
-      - cdo
 language: python
 python:
   #  - "2.6"
@@ -22,5 +20,11 @@ python:
 install:
   - pip install -r requirements.txt
   - python setup.py install
+  # install cdo fresh
+  - wget https://code.mpimet.mpg.de/attachments/download/15564/cdo-current.tar.gz
+  - mkdir cdo-current
+  - tar -xzvf cdo-current.tar.gz -C cdo-current --strip-components 1
+  - pushd cdo-current && ./configure --enable-netcdf4  --enable-zlib --with-netcdf=/usr/ --with-hdf5=/usr/ && make && sudo make install
+
 # command to run tests
 script: pytest
