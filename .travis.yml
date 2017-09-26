@@ -22,12 +22,12 @@ install:
   - pip install -r requirements.txt
   - python setup.py install
   # install cdo fresh
-  - wget https://code.mpimet.mpg.de/attachments/download/15187/cdo-1.8.2.tar.gz
+  - wget https://code.mpimet.mpg.de/attachments/download/14686/cdo-1.8.2.tar.gz
   - mkdir cdo-files
   - tar -xzvf cdo-1.8.2.tar.gz -C cdo-files --strip-components 1
   - pushd cdo-files
   - ./configure --enable-netcdf4  --enable-zlib --with-netcdf=/usr/ --with-hdf5=/usr/
-  - make 
+  - make
   - sudo make install
   - pushd
 # command to run tests
