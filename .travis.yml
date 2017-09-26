@@ -27,6 +27,6 @@ install:
   - tar -xzvf cdo-current.tar.gz -C cdo-current --strip-components 1
   # - pushd cdo-current && ./configure --enable-netcdf4  --enable-zlib --with-netcdf=/usr/ --with-hdf5=/usr/ && make && sudo make install
   - pushd cdo-current # && ./configure --enable-netcdf4  --enable-zlib --with-netcdf=/usr/ --with-hdf5=/usr/ && make && sudo make install
-
+  - pushd
 # command to run tests
 script: pytest
