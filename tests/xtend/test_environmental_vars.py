@@ -34,6 +34,12 @@ def test_load_from_env_and_folder():
     DS.tas.xtend._load_env()
     assert hasattr(DS.tas.xtend, 'climate')
 
+def test_load_from_env_and_folder_DS():
+    os.environ[DS_ENV] = os.path.join(os.path.dirname(__file__), 'ds_methods_another')
+    from xsuite import xtend
+    DS.xtend._load_env()
+    assert hasattr(DS.xtend, 'anom')
+
 
 def test_reload_importing():
     from xsuite import xtend
