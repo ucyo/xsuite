@@ -5,7 +5,7 @@
 import os
 import pkg_resources
 from xsuite.tools import load_data
-from xsuite import xtend
+import xsuite
 
 DA_ENV = 'XSUITE_DA_METHODS'
 DS_ENV = 'XSUITE_DS_METHODS'
@@ -50,4 +50,4 @@ def test_reload_importing():
 def test_no_python_file():
     data = pkg_resources.resource_filename('xsuite', 'data/toyweather.nc')
     folder, _ = os.path.split(data)
-    assert not xtend.xtend_dataset(folder)
+    assert not xsuite.xtend.xtend_dataset(folder)
