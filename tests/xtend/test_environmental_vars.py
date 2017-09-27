@@ -5,7 +5,7 @@
 import os
 import pkg_resources
 from xsuite.tools import load_data
-
+from xsuite import xtend
 
 DA_ENV = 'XSUITE_DA_METHODS'
 DS_ENV = 'XSUITE_DS_METHODS'
