@@ -30,7 +30,7 @@ def test_load_from_env():
     assert hasattr(DS.xtend, 'anomalies')
 
 
-def test_load_from_env_and_folder():
+def test_load_from_env_and_folder_DA():
     os.environ[DA_ENV] = os.path.join(os.path.dirname(__file__), 'da_methods_another')
     from xsuite import xtend
     DS.tas.xtend._load_env()
@@ -48,6 +48,13 @@ def test_reload_importing():
     from xsuite import xtend
     assert True  # Reimport worked
 
+
+def test_load_env():
+    setup_env()
+    xsuite.xtend._load_from_env()
+    assert hasattr(DS.tas.xtend, 'anomalies')
+    assert hasattr(DS.tas.xtend, 'climatology')
+    assert hasattr(DS.xtend, 'anomalies')
 
 def test_no_env():
     os.environ[DA_ENV] = ''
