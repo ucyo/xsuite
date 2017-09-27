@@ -1,4 +1,4 @@
-# xsuite
+# xsuite [![Build Status](https://travis-ci.org/ucyo/xsuite.svg?branch=master)](https://travis-ci.org/ucyo/xsuite) [![Coverage Status](https://coveralls.io/repos/github/ucyo/xsuite/badge.svg?branch=master)](https://coveralls.io/github/ucyo/xsuite?branch=master)
 This python module provides several extensions for xarray in one package.
 Currently there are three extensions:
 
