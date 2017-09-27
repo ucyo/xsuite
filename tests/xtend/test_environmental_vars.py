@@ -50,12 +50,12 @@ def test_reload_importing():
 
 def test_no_env():
     os.environ[DA_ENV] = ''
-    xtend._load_from_env('da')
+    xsuite.xtend._load_from_env('da')
     assert True
 
 def test_remove_env():
     del os.environ[DA_ENV]
-    xtend._load_from_env('da')
+    xsuite.xtend._load_from_env('da')
     assert True
 
 def test_no_python_file():
