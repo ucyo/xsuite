@@ -47,6 +47,17 @@ def test_reload_importing():
     from xsuite import xtend
     assert True  # Reimport worked
 
+
+def test_no_env():
+    os.environ[DA_ENV] = ''
+    xtend._load_from_env('da')
+    assert True
+
+def test_remove_env():
+    del os.environ[DA_ENV]
+    xtend._load_from_env('da')
+    assert True
+
 def test_no_python_file():
     data = pkg_resources.resource_filename('xsuite', 'data/toyweather.nc')
     folder, _ = os.path.split(data)
