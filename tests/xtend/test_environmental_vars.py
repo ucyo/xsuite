@@ -3,6 +3,7 @@
 """Test environmental variables for extension of xarray."""
 
 import os
+import pkg_resources
 from xsuite.tools import load_data
 
 
@@ -45,3 +46,8 @@ def test_reload_importing():
     from xsuite import xtend
     from xsuite import xtend
     assert True  # Reimport worked
+
+def test_no_python_file():
+    data = pkg_resources.resource_filename('xsuite', 'data/toyweather.nc')
+    folder, _ = os.path.split(data)
+    assert not xtend.xtend_dataset(folder)
