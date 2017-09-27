@@ -1,9 +1,13 @@
+#!/usr/bin/env python
+# coding=utf-8
+"""Logging setup for Logger."""
+
+
 import logging
 from logging import config
 import os
-import pprint
-
 import yaml
+
 
 def setup_logging(path=None, level=logging.INFO, env_key='LOG_CFG'):
     """Setup logging configuration."""
@@ -14,11 +18,10 @@ def setup_logging(path=None, level=logging.INFO, env_key='LOG_CFG'):
         with open(path, 'rt') as f:
             configuration = yaml.safe_load(f.read())
     else:
-        configuration = yaml.load(yamlconfig)
+        configuration = yaml.load(YAMLCONFIG)
     config.dictConfig(configuration)
 
-
-yamlconfig = """ 
+YAMLCONFIG = """ 
 version: 1
 disable_existing_loggers: False
 

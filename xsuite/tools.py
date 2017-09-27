@@ -2,7 +2,6 @@
 # coding=utf-8
 """Tools help defining recurring tasks."""
 
-import os
 import pkg_resources
 import xarray as xr
 
