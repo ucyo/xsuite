@@ -9,14 +9,15 @@ import xsuite
 
 DA_ENV = 'XSUITE_DA_METHODS'
 DS_ENV = 'XSUITE_DS_METHODS'
-DIR = os.path.dirname(__file__)
+DIR = os.path.dirname(os.path.abspath(__file__))
 DA_ENV_ENTRY = "{}:{}".format(os.path.join(DIR, 'da_methods'),
                               os.path.join(DIR, 'da_methods_other'))
 DS_ENV_ENTRY = os.path.join(DIR, 'ds_methods')
 
-
-for var in [DA_ENV, DS_ENV]:
-    os.environ[var] = DA_ENV_ENTRY if 'DA' in var else DS_ENV_ENTRY
+def setup_env():
+    for var in [DA_ENV, DS_ENV]:
+        os.environ[var] = DA_ENV_ENTRY if 'DA' in var else DS_ENV_ENTRY
+setup_env()
 
 
 DS = load_data('pre', decode_times=False)
