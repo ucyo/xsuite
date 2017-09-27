@@ -98,4 +98,5 @@ def _load_from_env(mode=None):
         return None
     folders = env.split(':')
     for folder in folders:
+        logger.info('Adding folder %s as %s (ENV: %s)', folder, mode, env)
         _add_folder(folder, mode)
