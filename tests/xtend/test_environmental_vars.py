@@ -5,7 +5,7 @@
 import os
 import pkg_resources
 from xsuite.tools import load_data
-from xsuite import xtend
+import xsuite
 
 DA_ENV = 'XSUITE_DA_METHODS'
 DS_ENV = 'XSUITE_DS_METHODS'
@@ -50,22 +50,22 @@ def test_reload_importing():
 
 def test_load_env():
     setup_env()
-    xtend._load_from_env()
+    xsuite.xtend._load_from_env()
     assert hasattr(DS.tas.xtend, 'anomalies')
     assert hasattr(DS.tas.xtend, 'climatology')
     assert hasattr(DS.xtend, 'anomalies')
 
 def test_no_env():
     os.environ[DA_ENV] = ''
-    xtend._load_from_env('da')
+    xsuite.xtend._load_from_env('da')
     assert True
 
 def test_remove_env():
     del os.environ[DA_ENV]
-    xtend._load_from_env('da')
+    xsuite.xtend._load_from_env('da')
     assert True
 
 def test_no_python_file():
     data = pkg_resources.resource_filename('xsuite', 'data/toyweather.nc')
     folder, _ = os.path.split(data)
-    assert not xtend.xtend_dataset(folder)
+    assert not xsuite.xtend.xtend_dataset(folder)
