@@ -32,6 +32,7 @@ install:
   - pushd
 # command to run tests
 script:
-  - pytest
+  - coverage run --source xsuite -m py.test
 after_success:
+  - coverage report
   - coveralls
