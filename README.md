@@ -27,10 +27,9 @@ provided by the cdo toolset to be used on `xr.Dataset` instances.
 Here is an example:
 
 ```python
-from xsuite import xcdo
-from xsuite.tools import load_data
+from xsuite import xcdo, load_data
 
-ds = load_data('sresa1b_ncar_ccsm3-example.nc', decode_times=False)
+ds = load_data('pre', decode_times=False)
 
 ds.xcdo.mermean().zonmean().result()  # this will return a xr.Dataset instance
 ```
@@ -51,15 +50,16 @@ and `xarray.DataArray` instances.
 Here is an example:
 
 ```python
-from xsuite import xtend
-import xarray as xr
 import os
+import xsuite
+import xarray as xr
+from xsuite import xtend
 
 folder = './examples/'
 print(os.listdir(folder))  # Output: ['anomalies.py', ]
 xtend.xtend_dataarray(folder)
 
-ds = xsuite.load_data('toyweather.nc')
+ds = xsuite.load_data('toy')
 ds.tmin.xtend.anomalies()  # this will return an xr.DataArray instance
 ```
 
