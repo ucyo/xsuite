@@ -3,12 +3,14 @@
 """Class for cdo operators."""
 
 import re
-from cdo import Cdo
-from xsuite.xcdo.helpers import mapping, nodoc
 import os
-import xarray as xr
-from xsuite.backend.xstores import NC4DataStore
 import tempfile
+
+from cdo import Cdo
+import xarray as xr
+from xsuite.xcdo.helpers import mapping, nodoc
+from xsuite.backend.xstores import NC4DataStore
+
 
 class CMD(object):
 
