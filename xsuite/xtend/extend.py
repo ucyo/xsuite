@@ -81,7 +81,7 @@ def _add_folder(folder, mode=None):
         try:
             lib = ilib.import_module(method, package='xtend')
             _patch(getattr(lib, 'main'), method, mode)
-        except (SystemError, ModuleNotFoundError) as err:
+        except (SystemError, ImportError) as err:
             logger.info("Method: %s not loaded. Because: %s", method, err)
         except AttributeError as err:
             logger.info("Method: %s has no 'main' function.", method)
