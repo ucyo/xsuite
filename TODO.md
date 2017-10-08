@@ -12,3 +12,4 @@
 - Add xview with redesign
 - Look for class name if main is not given/found
 - Dataarray methods on Datasets (by applying method to each datavariable)
+- Create conda environment in travis.ci
