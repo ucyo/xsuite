@@ -8,7 +8,7 @@ Currently there are three extensions:
 - `xsuite.backend.xstores` Additional datastores for different formats
 
 > cdo version 1.9.0 is currently not supported. The toolset does not support
-> the `returnCdf` command anymore. Any [issue](https://code.mpimet.mpg.de/issues/7839#change-33102)
+> the `returnCdf` command anymore. An [issue](https://code.mpimet.mpg.de/issues/7839#change-33102)
 > has been opened.
 
 ## Installation
